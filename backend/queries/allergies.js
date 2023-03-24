@@ -1,8 +1,8 @@
-const db = require("../db/dbConfig.js");
+const db = require('../db/dbConfig.js');
 
 const getAllergies = async () => {
   try {
-    const allAllergies = await db.any("SELECT * FROM allergies");
+    const allAllergies = await db.any('SELECT * FROM allergies');
     return allAllergies;
   } catch (error) {
     return error;
@@ -11,7 +11,7 @@ const getAllergies = async () => {
 
 const getAllergy = async (id) => {
   try {
-    const oneAllergy = await db.one("SELECT * FROM allergies WHERE id=$1", id);
+    const oneAllergy = await db.one(`SELECT * FROM allergies WHERE id=${id}`);
     return oneAllergy;
   } catch (error) {
     return error;
@@ -21,8 +21,7 @@ const getAllergy = async (id) => {
 const createAllergy = async ({ allergy_type }) => {
   try {
     const newAllergy = await db.one(
-      "INSERT INTO allergies (allergy_type) VALUES($1) RETURNING *",
-      [allergy_type]
+      `INSERT INTO allergies (allergy_type) VALUES(${allergy_type}) RETURNING *`,
     );
     return newAllergy;
   } catch (error) {
@@ -33,8 +32,7 @@ const createAllergy = async ({ allergy_type }) => {
 const updateAllergy = async (id, { allergy_type, ...otherStuff }) => {
   try {
     const updateAllergy = await db.one(
-      "UPDATE allergies SET allergy_type=$1 where id=$2 RETURNING *",
-      [allergy_type, id]
+      `UPDATE allergies SET allergy_type=${allergy_type} where id=${id} RETURNING *`,
     );
     return updateAllergy;
   } catch (error) {
@@ -46,8 +44,7 @@ const updateAllergy = async (id, { allergy_type, ...otherStuff }) => {
 const deleteAllergy = async (id) => {
   try {
     const oneAllergy = await db.one(
-      "DELETE FROM allergies WHERE id=$1 RETURNING *",
-      id
+      `DELETE FROM allergies WHERE id=${id} RETURNING *`,
     );
     return oneAllergy;
   } catch (error) {
