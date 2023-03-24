@@ -1,4 +1,4 @@
-import '../Styles/About.css';
+import '../Styles/About.scss';
 import { Link } from 'react-router-dom';
 export default function About() {
   return (

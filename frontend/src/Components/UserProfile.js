@@ -1,9 +1,9 @@
 import axios from 'axios';
-import '../Styles/UserProfile.css';
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import User from './User';
-import '../Styles/UserProfiles.css';
+import '../Styles/UserProfiles.scss';
 import LikedPush from './LikedPush';
 
 export default function UserProfile({ currentFilter, users, user }) {
@@ -18,7 +18,9 @@ export default function UserProfile({ currentFilter, users, user }) {
           }
         })
         .map((u) => {
-          return <User info={u} key={`${u.id}-${u.name}`} signedInUser={user} />;
+          return (
+            <User info={u} key={`${u.id}-${u.name}`} signedInUser={user} />
+          );
         })}
     </div>
   );

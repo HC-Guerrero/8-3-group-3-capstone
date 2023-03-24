@@ -1,5 +1,5 @@
 import NavBar from '../Components/NavBar.js';
-import "./navbar.css"
+import '../Styles/navbar.scss';
 
 export default function Nav() {
   return (

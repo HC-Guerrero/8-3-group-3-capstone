@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../Styles/NewProfile.css';
+import '../Styles/NewProfile.scss';
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -72,7 +72,7 @@ export default function NewProfile() {
           </label>
           <input
             id='image'
-            className='text-sm font-semibold inline-block py-4 px-2    text-black bg-pink-200 last:mr-0 mr-1'
+            className='text-sm font-semibold inline-block py-4 px-2 text-black bg-pink-200 last:mr-0 mr-1'
             type='text'
             value={profile.image}
             onChange={handleTextChange}
@@ -88,7 +88,7 @@ export default function NewProfile() {
           </label>
           <input
             id='email'
-            className='emails text-sm font-semibold inline-block py-4 px-2    text-black bg-pink-200 last:mr-0 mr-1'
+            className='emails text-sm font-semibold inline-block py-4 px-2 text-black bg-pink-200 last:mr-0 mr-1'
             type='text'
             value={profile.email}
             onChange={handleTextChange}
@@ -103,7 +103,7 @@ export default function NewProfile() {
           </label>
           <input
             id='age'
-            className='text-sm font-semibold inline-block py-4 px-2    text-black bg-pink-200 last:mr-0 mr-1'
+            className='text-sm font-semibold inline-block py-4 px-2 text-black bg-pink-200 last:mr-0 mr-1'
             type='number'
             value={profile.age}
             onChange={handleTextChange}
@@ -119,9 +119,11 @@ export default function NewProfile() {
           </label>
           <textarea
             id='Dietary_Restrictions'
-            className='text-sm font-semibold    text-black'
+            className='text-sm font-semibold text-black'
             rows='3'
             cols='30'
+            value={profile.dietary_restrictions}
+            onChange={handleTextChange}
             placeholder='Remember to keep each Restriction comma separated!'
           ></textarea>
 
@@ -137,6 +139,8 @@ export default function NewProfile() {
             className='text-sm  text-black resize-x-10'
             rows='3'
             cols='30'
+            value={profile.food_preferences}
+            onChange={handleTextChange}
             placeholder="Enter your favorite foods, each one seperated by a ','."
           ></textarea>
           <label
@@ -148,7 +152,7 @@ export default function NewProfile() {
           </label>
           <input
             id='sexual_orientation'
-            className='text-sm inline-block py-4 px-2    text-black bg-pink-200 last:mr-0 mr-1'
+            className='text-sm inline-block py-4 px-2 text-black bg-pink-200 last:mr-0 mr-1'
             type='text'
             value={profile.sexual_orientation}
             onChange={handleTextChange}
@@ -163,7 +167,7 @@ export default function NewProfile() {
           </label>
           <input
             id='gender'
-            className='text-sm font-semibold inline-block py-4 px-2    text-black bg-pink-200 last:mr-0 mr-1'
+            className='text-sm font-semibold inline-block py-4 px-2 text-black bg-pink-200 last:mr-0 mr-1'
             type='text'
             value={profile.gender}
             onChange={handleTextChange}
@@ -178,7 +182,7 @@ export default function NewProfile() {
           </label>
           <textarea
             id='about_me'
-            className='text-sm font-semibold    text-black'
+            className='text-sm font-semibold text-black'
             type='about_me'
             rows='3'
             cols='30'
@@ -195,7 +199,7 @@ export default function NewProfile() {
           </label>
           <input
             id='chat_handle'
-            className='NewUserForm text-sm font-semibold inline-block py-4 px-2    bg-pink-200 last:mr-0 mr-1'
+            className='NewUserForm text-sm font-semibold inline-block py-4 px-2 bg-pink-200 last:mr-0 mr-1'
             type='text'
             value={profile.chat_handle}
             onChange={handleTextChange}
@@ -207,7 +211,7 @@ export default function NewProfile() {
             </Link>
           </div>
           <div id='buttonDiv'>
-            <button className='hover:cursor-pointer bg-purple-900 hover:bg-blue-700  font-bold py-15 px-10 rounded-full text-white font-bold space-y-4'>
+            <button className='hover:cursor-pointer bg-purple-900 hover:bg-blue-700 font-bold py-15 px-10 rounded-full text-white font-bold space-y-4'>
               Submit
             </button>
           </div>

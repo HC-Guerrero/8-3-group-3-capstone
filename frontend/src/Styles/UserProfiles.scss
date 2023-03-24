@@ -13,3 +13,13 @@
     /* border: solid 2px black; */
    
 }
+.UserGallery{
+    max-width: 70%;
+    height: 100%;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}

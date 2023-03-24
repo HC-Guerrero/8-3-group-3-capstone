@@ -1,4 +1,4 @@
-import '../Styles/Food.css';
+import '../Styles/Food.scss';
 export default function Food({ info }) {
   return (
     <div
