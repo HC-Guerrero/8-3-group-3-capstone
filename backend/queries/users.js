@@ -19,6 +19,7 @@ const getUser = async (id) => {
     return error;
   }
 };
+/*
 const getUserByFirebase = async (id) => {
   try {
     const user = await db.one(
@@ -30,6 +31,7 @@ const getUserByFirebase = async (id) => {
     return error;
   }
 };
+*/
 //CREATE
 const createUser = async (user) => {
   try {
@@ -118,7 +120,7 @@ const updateUser = async (
 module.exports = {
   getAllUsers,
   getUser,
-  getUserByFirebase,
+  //getUserByFirebase,
   createUser,
   deleteUser,
   updateUser,
