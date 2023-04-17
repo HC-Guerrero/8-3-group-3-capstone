@@ -15,7 +15,7 @@ import EditPage from './Pages/EditPage.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { ToastContainer, toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
-//import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import app, { auth } from './Firebase.js';
 import MatchesPage from './Pages/MatchesPage.js';
 import Matches from './Components/Matches.js';
@@ -27,7 +27,7 @@ const API = process.env.REACT_APP_API_URL;
 function App() {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
-  //const [firebaseId, setFirebaseId] = useState('');
+  const [firebaseId, setFirebaseId] = useState('');
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -39,11 +39,11 @@ function App() {
       setLoggedIn(false);
     }
   });
-  /* /firebase/${firebaseId} */
+
   useEffect(() => {
     if (loggedIn) {
       axios
-        .get(`${API}/users` /* /firebase/${firebaseId} */)
+        .get(`${API}/users/firebase/${firebaseId}`)
         .then((response) => {
           setUser(response.data.payload);
         })
@@ -51,7 +51,7 @@ function App() {
     } else {
       setUser({});
     }
-  }, [loggedIn /*firebaseId */]);
+  }, [loggedIn, firebaseId]);
 
   const logOut = () => {
     signOut(auth)
@@ -96,9 +96,7 @@ function App() {
           <Route path='/signin' element={<SignIn />} />
           <Route
             path='/users/new'
-            element={
-              <NewUserPage /*firebaseId={firebaseId} setUser={setUser}*/ />
-            }
+            element={<NewUserPage firebaseId={firebaseId} setUser={setUser} />}
           />
           <Route path='/users/:id' element={<ExpandedUser />} />
           <Route

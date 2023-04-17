@@ -2,7 +2,7 @@ const express = require('express');
 const {
   getAllUsers,
   getUser,
-  //getUserByFirebase,
+  getUserByFirebase,
   updateUser,
   createUser,
   deleteUser,
@@ -21,22 +21,22 @@ usersController.get('/', async (request, response) => {
   }
 });
 //GET by firebase id
-/*usersController.get("/firebase/:id", async (request, response) => {
-	const { id } = request.params;
-	const user = await getUserByFirebase(id);
-	if (user.id) {
-		response.status(200).json({
-			success: true,
-			payload: user,
-		});
-	} else {
-		response.status(404).json({
-			success: false,
-			id: id,
-			payload: `Error: no user found with Firebase ID ${id}.`,
-		});
-	}
-}); */
+usersController.get('/firebase/:id', async (request, response) => {
+  const { id } = request.params;
+  const user = await getUserByFirebase(id);
+  if (user.id) {
+    response.status(200).json({
+      success: true,
+      payload: user,
+    });
+  } else {
+    response.status(404).json({
+      success: false,
+      id: id,
+      payload: `Error: no user found with Firebase ID ${id}.`,
+    });
+  }
+});
 
 usersController.get('/:id', async (request, response) => {
   const { id } = request.params;
