@@ -7,6 +7,7 @@ import Recipe from './Pages/Recipe.js';
 import ExpandedUser from './Pages/ExpandedUser.js';
 import AboutPage from './Pages/About.js';
 import NewUserPage from './Pages/NewUserPage.js';
+import LoggedInUser from './Pages/MyProfile.js';
 import './App.css';
 import Register from './Components/Register.js';
 import SignIn from './Components/SignIn.js';
@@ -102,6 +103,10 @@ function App() {
           <Route
             path='/users/:id/edit'
             element={<EditPage API={API} user={user} />}
+          />
+          <Route
+            path='/myprofile'
+            element={<LoggedInUser /*firebaseId={firebaseId}*/ />}
           />
           <Route path='/matches' element={<Matches user={user} />} />
           {/* <Route path="/users/:id" element={<></>} />//a show page, eventually */}
