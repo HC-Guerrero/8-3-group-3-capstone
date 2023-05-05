@@ -7,7 +7,7 @@ import Recipe from './Pages/Recipe.js';
 import ExpandedUser from './Pages/ExpandedUser.js';
 import AboutPage from './Pages/About.js';
 import NewUserPage from './Pages/NewUserPage.js';
-import LoggedInUser from './Pages/MyProfile.js';
+import LoggedInUser from './Pages/LoggedInUser.js';
 import './App.css';
 import Register from './Components/Register.js';
 import SignIn from './Components/SignIn.js';
