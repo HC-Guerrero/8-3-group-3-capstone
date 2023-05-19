@@ -34,7 +34,7 @@ export default function LoggedInFireBaseProfile({ info, signedInUser }) {
   return (
     <div
       id='UserDiv'
-      className='w-screen  bg-beige h-screen rounded overflow-hidden shadow-lg border-red'
+      className='w-screen  h-screen rounded overflow-hidden shadow-lg border-red'
     >
       <p
         id='WelcomeBlurb'

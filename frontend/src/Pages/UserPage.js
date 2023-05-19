@@ -1,9 +1,9 @@
-import UserProfile from "../Components/UserProfile.js";
-import Checklist from "../Components/Checklist.js";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { context } from "../AuthContext";
+import UserProfile from '../Components/UserProfile.js';
+import Checklist from '../Components/Checklist.js';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { context } from '../AuthContext';
 
 /**
  * capitalizes first letter and no trailing spaces in string given.
@@ -13,12 +13,12 @@ import { context } from "../AuthContext";
 const normalizeOneEntry = (word) => {
   //trim spaces on outside first
   word = word.trim();
-  word = word.split("");
+  word = word.split('');
   word[0] = word[0].toUpperCase();
   for (let i = 1; i < word.length; i++) {
     word[i] = word[i].toLowerCase();
   }
-  return word.join("");
+  return word.join('');
 };
 
 /**
@@ -30,18 +30,18 @@ const normalizeListOfWords = (words) => {
   // split string into array of comma separated thingies
   return words
     .trim()
-    .split(",")
+    .split(',')
     .map((word) => {
       return normalizeOneEntry(word);
     })
-    .join(", ")
+    .join(', ')
     .trim();
   // call normalizeOneEntry() on each entry
   // join normalized words in a comma separated string and return
 };
 
 export default function UserPage({ user }) {
-  const [currentFilter, setCurrentFilter] = useState("");
+  const [currentFilter, setCurrentFilter] = useState('');
   const URL = process.env.REACT_APP_API_URL;
   const [users, setUsers] = useState([]);
   const [dietaryRestrictions, setDietaryResctrions] = useState([]);
@@ -58,8 +58,8 @@ export default function UserPage({ user }) {
         setUsers(res.data.payload);
         users.forEach((user) => {
           let listOfRestrictions = normalizeListOfWords(
-            user.dietary_restrictions
-          ).split(",");
+            user.dietary_restrictions,
+          ).split(',');
           //console.log(listOfRestrictions);
           listOfRestrictions.forEach((restriction) => {
             if (!dietaryRestrictions.includes(restriction)) {
@@ -73,13 +73,13 @@ export default function UserPage({ user }) {
 
   return (
     <section>
-      {/* <Checklist
+      <Checklist
         setCurrentFilter={setCurrentFilter}
         restrictions={dietaryRestrictions}
-      /> */}
+      />
       <UserProfile user={user} currentFilter={currentFilter} users={users} />
-      <Link to="/">
-        <img src={require("../Assets/previous.png")} alt="Back" />
+      <Link to='/'>
+        <img src={require('../Assets/previous.png')} alt='Back' />
       </Link>
     </section>
   );
