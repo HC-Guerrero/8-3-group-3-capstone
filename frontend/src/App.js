@@ -109,7 +109,8 @@ function App() {
             element={<LoggedInUser /*firebaseId={firebaseId}*/ />}
           />
           <Route path='/matches' element={<Matches user={user} />} />
-          {/* <Route path="/users/:id" element={<></>} />//a show page, eventually */}
+
+          {/*change <Route path="/users/:id" element={<></>} />//a show page, eventually */}
         </Routes>
         <Footer />
         <ToastContainer />
