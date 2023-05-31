@@ -69,7 +69,7 @@ export default function UserPage({ user }) {
         });
       })
       .catch((err) => console.warn(err.message.payload));
-  }, [URL]);
+  }, []);
 
   return (
     <section>

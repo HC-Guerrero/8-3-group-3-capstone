@@ -44,7 +44,7 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       axios
-        .get(`${API}/users/:firebase/${firebaseId}`)
+        .get(`${API}/users/firebase/${firebaseId}`)
         .then((response) => {
           setUser(response.data.payload);
         })
