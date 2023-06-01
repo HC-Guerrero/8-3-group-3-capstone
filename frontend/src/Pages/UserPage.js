@@ -53,7 +53,7 @@ export default function UserPage({ user }) {
 
   useEffect(() => {
     axios
-      .get(`${URL}/users`)
+      .get(`https://eight3capstone.onrender.com/users`)
       .then((res) => {
         setUsers(res.data.payload);
         users.forEach((user) => {
